@@ -11,5 +11,5 @@ public interface Flights {
 	public void delete(Flight flight);
 	public void update(Flight flight);
 	public List<Flight> getAllFlights();
-	public void getFlightById(int flightId);
+	public Flight getFlightById(int flightId);
 }

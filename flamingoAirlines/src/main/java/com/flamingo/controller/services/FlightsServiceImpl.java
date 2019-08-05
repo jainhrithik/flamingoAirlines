@@ -26,32 +26,38 @@ public class FlightsServiceImpl implements FlightsServices {
 			dbFlight.setFlightName(flight.getFlightName());
 			dbFlight.setCapacity(flight.getCapacity());
 			dbFlight.setModel(flight.getModel());
+			flightDao.update(dbFlight);
 		}
-		
-	}
+		else
+			System.out.println("Sorry can't find this Flight");
+		}
 
 	@Override
 	public void removeFlight(Flight flight) {
 		// TODO Auto-generated method stub
-
+		Flight dbFlight=findFlightById(flight.getFlightId());
+		if(dbFlight!=null)
+		flightDao.delete(flight);
+		else 
+			System.out.println("Sorry can't find this Flight");
 	}
 
 	@Override
 	public Flight findFlightById(int flightId) {
 		// TODO Auto-generated method stub
-		return null;
+			return flightDao.getFlightById(flightId);
 	}
 
 	@Override
 	public List<Flight> findAllFlights() {
 		// TODO Auto-generated method stub
-		return null;
+		return flightDao.getAllFlights();
 	}
 
 	@Override
 	public int getFlightCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return flightDao.getAllFlights().size();
 	}
 
 }

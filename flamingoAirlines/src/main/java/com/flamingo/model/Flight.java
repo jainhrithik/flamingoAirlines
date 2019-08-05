@@ -1,12 +1,30 @@
 package com.flamingo.model;
 
-public class Flight {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="flight")
+public class Flight {
+	@Id
 	private int flightId;
 	private String flightName;
 	private int capacity;
 	private String model;
 	
+	
+	
+	public Flight(int flightId, String flightName, int capacity, String model) {
+		super();
+		this.flightId = flightId;
+		this.flightName = flightName;
+		this.capacity = capacity;
+		this.model = model;
+	}
 	public int getFlightId() {
 		return flightId;
 	}

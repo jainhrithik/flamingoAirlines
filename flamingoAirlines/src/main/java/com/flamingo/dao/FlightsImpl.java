@@ -54,9 +54,9 @@ public class FlightsImpl implements Flights {
 	}
 
 	@Override
-	public void getFlightById(int flightId) {
+	public Flight getFlightById(int flightId) {
 		// TODO Auto-generated method stub
-		hibernateTemplate.get(Flight.class, flightId);	
+		return hibernateTemplate.get(Flight.class, flightId);	
 	}
 
 }
